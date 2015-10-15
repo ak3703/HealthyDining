@@ -1,0 +1,70 @@
+{"business_id": "XCzjwOmvy_QROtczP8YlCA", "full_address": "965 Amsterdam Ave\nManhattan Valley\nNew York, NY 10025", "schools": ["Columbia University"], "open": true, "categories": ["Pizza", "Restaurants"], "photo_url": "http://s3-media3.ak.yelpcdn.com/bphoto/EunYRWiFJ2IsBE2sx0aEfQ/ms.jpg", "city": "New York", "review_count": 6, "name": "Domino's Pizza", "neighborhoods": ["Manhattan Valley"], "url": "http://www.yelp.com/biz/dominos-pizza-new-york-21", "longitude": -73.964874399999999, "state": "NY", "stars": 3.0, "latitude": 40.8013336, "type": "business"}
+
+{"votes": {"funny": 0, "useful": 1, "cool": 1}, "user_id": "TbVl1HA_ozOCln0hJ4HXFg", "name": "Joia B.", "url": "http://www.yelp.com/user_details?userid=TbVl1HA_ozOCln0hJ4HXFg", "average_stars": 4.0, "review_count": 5, "type": "user"}
+{"votes": {"funny": 0, "useful": 0, "cool": 0}, "user_id": "TbVl1HA_ozOCln0hJ4HXFg", "review_id": "qMmqFvNAtlkTrRu6qWDSHA", "stars": 4, "date": "2012-01-27", "text": "All I read are bad reviews for Dominos. Granted they're not better than mom & pops pizza where I can buy by the slice BUT this Dominos is great. I always get delivery & they never take long. Pizza is always hot & delicious. & the people on the phone are professional.", "type": "review", "business_id": "XCzjwOmvy_QROtczP8YlCA"}
+
+{"votes": {"funny": 9, "useful": 48, "cool": 17}, "user_id": "xUbdKdiJoXo9-QqRqWrcSQ", "name": "Mari A.", "url": "http://www.yelp.com/user_details?userid=xUbdKdiJoXo9-QqRqWrcSQ", "average_stars": 3.64864864864865, "review_count": 37, "type": "user"}
+{"votes": {"funny": 0, "useful": 0, "cool": 0}, "user_id": "xUbdKdiJoXo9-QqRqWrcSQ", "review_id": "YjoS8xBeIIQ5I4c2WBrAWg", "stars": 1, "date": "2011-01-11", "text": "I've always hated this Dominos because they don't take almost all Dominos coupons, but now I REALLY hate them... introducing the $1.50 delivery charge. \n\nWith so many better pizza options in the 'hood that deliver for free, I guess I won't be ordering from Dominos again until I move below 100th st. (the cutoff for this store.)\n\nAlso, they've completely borked their online account system. It doesn't save past orders anymore and you can't delete old locations.", "type": "review", "business_id": "XCzjwOmvy_QROtczP8YlCA"}
+
+
+CAMIS,DBA,BORO,BUILDING,STREET,ZIPCODE,PHONE,CUISINE DESCRIPTION,INSPECTION DATE,ACTION,VIOLATION CODE,VIOLATION DESCRIPTION,CRITICAL FLAG,SCORE,GRADE,GRADE DATE,RECORD DATE,INSPECTION TYPE
+40797798,DOMINO'S PIZZA,MANHATTAN,965,AMSTERDAM AVENUE,10025,2122222000,Pizza,08/06/2015,Violations were cited in the following area(s).,04M,Live roaches present in facility's food and/or non-food areas.,Critical,11,A,08/06/2015,10/14/2015,Cycle Inspection / Re-inspection
+40797798,DOMINO'S PIZZA,MANHATTAN,965,AMSTERDAM AVENUE,10025,2122222000,Pizza,08/06/2015,Violations were cited in the following area(s).,08A,Facility not vermin proof. Harborage or conditions conducive to attracting vermin to the premises and/or allowing vermin to exist.,Not Critical,11,A,08/06/2015,10/14/2015,Cycle Inspection / Re-inspection
+40797798,DOMINO'S PIZZA,MANHATTAN,965,AMSTERDAM AVENUE,10025,2122222000,Pizza,03/13/2015,Violations were cited in the following area(s).,02G,Cold food item held above 41Âº F (smoked fish and reduced oxygen packaged foods above 38 ÂºF) except during necessary preparation.,Critical,20,B,03/13/2015,10/14/2015,Cycle Inspection / Re-inspection
+40797798,DOMINO'S PIZZA,MANHATTAN,965,AMSTERDAM AVENUE,10025,2122222000,Pizza,03/13/2015,Violations were cited in the following area(s).,04N,"Filth flies or food/refuse/sewage-associated (FRSA) flies present in facilitys food and/or non-food areas. Filth flies include house flies, little house flies, blow flies, bottle flies and flesh flies. Food/refuse/sewage-associated flies include fruit flies, drain flies and Phorid flies.",Critical,20,B,03/13/2015,10/14/2015,Cycle Inspection / Re-inspection
+40797798,DOMINO'S PIZZA,MANHATTAN,965,AMSTERDAM AVENUE,10025,2122222000,Pizza,03/13/2015,Violations were cited in the following area(s).,08A,Facility not vermin proof. Harborage or conditions conducive to attracting vermin to the premises and/or allowing vermin to exist.,Not Critical,20,B,03/13/2015,10/14/2015,Cycle Inspection / Re-inspection
+
+a_id: ,
+zip: 10025,
+building_number: 965,
+street_name: Amsterdam Ave,
+city: New York,
+state: NY
+
+r_id: XCzjwOmvy_QROtczP8YlCA,
+name: Domino's Pizza,
+cuisine: Pizza,
+photo_url: http://s3-media3.ak.yelpcdn.com/bphoto/EunYRWiFJ2IsBE2sx0aEfQ/ms.jpg,
+phone: 2122222000,
+website_url: http://www.yelp.com/biz/dominos-pizza-new-york-21,
+a_id: top,
+
+INSERTO INTO Addresses (a_id,zip,building_number,street_name,city,state)
+VALUES (2,10025,965,'Amsterdam Ave','New York','NY')
+
+INSERT INTO Restaurants (r_id, name, cuisine, photo_url, phone, website_url, a_id)
+VALUES ('XCzjwOmvy_QROtczP8YlCA', "Domino's Pizza", "Pizza", "http://s3-media3.ak.yelpcdn.com/bphoto/EunYRWiFJ2IsBE2sx0aEfQ/ms.jpg", "2122222000", "http://www.yelp.com/biz/dominos-pizza-new-york-21", 2)
+
+INSERT INTO Reviewers (u_id, name, review_count, average_rating)
+VALUES ('TbVl1HA_ozOCln0hJ4HXFg', 'Joia B.', 5, 4.0)
+
+INSERT INTO Reviews (u_id, r_id, date_reviewed, comment, rating)
+VALUES ('TbVl1HA_ozOCln0hJ4HXFg', 'XCzjwOmvy_QROtczP8YlCA', '2012-01-27', "All I read are bad reviews for Dominos. Granted they're not better than mom & pops pizza where I can buy by the slice BUT this Dominos is great. I always get delivery & they never take long. Pizza is always hot & delicious. & the people on the phone are professional.", 4)
+
+INSERT INTO Reviewers (u_id, name, review_count, average_rating)
+VALUES ('xUbdKdiJoXo9-QqRqWrcSQ', 'Mari A.', 37, 3.65)
+
+INSERT INTO Reviews (u_id, r_id, date_reviewed, comment, rating)
+VALUES ('xUbdKdiJoXo9-QqRqWrcSQ', 'XCzjwOmvy_QROtczP8YlCA', '2011-01-11', "I've always hated this Dominos because they don't take almost all Dominos coupons, but now I REALLY hate them... introducing the $1.50 delivery charge. \n\nWith so many better pizza options in the 'hood that deliver for free, I guess I won't be ordering from Dominos again until I move below 100th st. (the cutoff for this store.)\n\nAlso, they've completely borked their online account system. It doesn't save past orders anymore and you can't delete old locations.", 1)
+
+INSERT INTO ViolationSummaries (v_id, date_inspected, violation_count, grade, r_id)
+VALUES (21, '03-13-2015', 3, 'B', 'XCzjwOmvy_QROtczP8YlCA')
+
+INSERT INTO Violations (v_id, violation_detail, critical)
+VALUES (21, "Cold food item held above 41Ã‚Âº F (smoked fish and reduced oxygen packaged foods above 38 Ã‚ÂºF) except during necessary preparation.", 1)
+
+INSERT INTO Violations (v_id, violation_detail, critical)
+VALUES (21, "Facility not vermin proof. Harborage or conditions conducive to attracting vermin to the premises and/or allowing vermin to exist.", 0)
+
+INSERT INTO Violations (v_id, violation_detail, critical)
+VALUES (21, "Filth flies or food/refuse/sewage-associated (FRSA) flies present in facilitys food and/or non-food areas. Filth flies include house flies, little house flies, blow flies, bottle flies and flesh flies. Food/refuse/sewage-associated flies include fruit flies, drain flies and Phorid flies.", 1)
+
+INSERT INTO ViolationSummaries (v_id, date_inspected, violation_count, grade, r_id)
+VALUES (22, '08-06-2015', 2, 'A', 'XCzjwOmvy_QROtczP8YlCA')
+
+INSERT INTO Violations (v_id, violation_detail, critical)
+VALUES (22, "Facility not vermin proof. Harborage or conditions conducive to attracting vermin to the premises and/or allowing vermin to exist.", 0)
+
+INSERT INTO Violations (v_id, violation_detail, critical)
+VALUES (22, "Live roaches present in facility's food and/or non-food areas.", 0)
+

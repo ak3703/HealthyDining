@@ -32,7 +32,7 @@ CREATE TABLE ViolationSummaries(
 	v_id int, 
 	date_inspected DATE NOT NULL, 
 	violation_count int NOT NULL, 
-	grade int NOT NULL, 
+	grade VARCHAR(2) NOT NULL, 
 	r_id int, 
 	FOREIGN KEY (r_id) REFERENCES Restaurants(r_id),
 	PRIMARY KEY (v_id));
