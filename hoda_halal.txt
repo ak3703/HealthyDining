@@ -1,0 +1,25 @@
+{"business_id": "TS1eYydoWdk9HwOUXhAgXg", "full_address": "116th St & Amsterdam Ave\nMorningside Heights\nManhattan, NY 10027", "schools": ["Columbia University"], "open": true, "categories": ["Food Stands", "Restaurants"], "photo_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/924a6444ca6c/gfx/blank_biz_medium.gif", "city": "Manhattan", "review_count": 2, "name": "Hoda Halal Cart", "neighborhoods": ["Morningside Heights"], "url": "http://www.yelp.com/biz/hoda-halal-cart-manhattan", "longitude": -73.961078599999993, "state": "NY", "stars": 4.5, "latitude": 40.806814500000002, "type": "business"}
+
+{"votes": {"funny": 0, "useful": 0, "cool": 1}, "user_id": "hkXI5ziRVzExHo6C-0JlAQ", "name": "Angela F.", "url": "http://www.yelp.com/user_details?userid=hkXI5ziRVzExHo6C-0JlAQ", "average_stars": 4.0, "review_count": 5, "type": "user"}
+{"votes": {"funny": 0, "useful": 0, "cool": 0}, "user_id": "hkXI5ziRVzExHo6C-0JlAQ", "review_id": "SBxGlXVc6Q1JJVzLojl-0g", "stars": 5, "date": "2012-09-14", "text": "Perfect for late nights - spend the extra 2 dollars and get the rice too :)", "type": "review", "business_id": "TS1eYydoWdk9HwOUXhAgXg"}
+
+{"votes": {"funny": 13, "useful": 62, "cool": 21}, "user_id": "R8mO8EMcBrkI5g1kBb8TVA", "name": "Laura Y.", "url": "http://www.yelp.com/user_details?userid=R8mO8EMcBrkI5g1kBb8TVA", "average_stars": 4.1836734693877604, "review_count": 147, "type": "user"}
+{"votes": {"funny": 0, "useful": 1, "cool": 0}, "user_id": "R8mO8EMcBrkI5g1kBb8TVA", "review_id": "xDNSB--n33Niqwr4qrRy6A", "stars": 4, "date": "2011-07-14", "text": "I don't know why there aren't more reviews for this place. Every morning whenever I go to work, I always pass by this stand and one day I actually got the chance to buy from them. I got a chicken gyro with white sauce, and it was delicious. The chicken was homogenously chopped up and the amount of lettuce and tomato was generous. The white sauce blended perfectly well with everything inside and what he put wasn't too much.\n\nAt first, when I got it, I thought it was a bit tiny compared to my hands (my hands are pretty big and they were about the size of my hand), but after I finished it, I felt satisfied and not too guilty of consuming yet another halal creation. The prices here are pretty standard, and they have coffee and breakfast food too, so stop by if you haven't, but I kind of doubt it since there are lines every time I walk by here during my lunch hour.\n\nDon't get this street cart confused with the one across the street! There's another one in front of the law school, but this one is on the main campus side of Amsterdam!", "type": "review", "business_id": "TS1eYydoWdk9HwOUXhAgXg"}
+
+INSERTO INTO Addresses (a_id,zip_code,street_name,city,state)
+VALUES (4,10027,'116th St & Amsterdam Ave','New York','NY')
+
+INSERT INTO Restaurants (r_id, name, cuisine, photo_url, website_url, a_id)
+VALUES ('TS1eYydoWdk9HwOUXhAgXg', "Hoda Halal Cart", "Food Stands", "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/924a6444ca6c/gfx/blank_biz_medium.gif", "http://www.yelp.com/biz/hoda-halal-cart-manhattan", 4)
+
+INSERT INTO Reviewers (u_id, name, review_count, average_rating)
+VALUES ('hkXI5ziRVzExHo6C-0JlAQ', 'Angela F.', 5, 4.0)
+
+INSERT INTO Reviews (u_id, r_id, date_reviewed, comment, rating)
+VALUES ('hkXI5ziRVzExHo6C-0JlAQ', 'TS1eYydoWdk9HwOUXhAgXg', '2012-09-14', "Perfect for late nights - spend the extra 2 dollars and get the rice too :)", 5)
+
+INSERT INTO Reviewers (u_id, name, review_count, average_rating)
+VALUES ('R8mO8EMcBrkI5g1kBb8TVA', 'Laura Y.', 147, 4.18)
+
+INSERT INTO Reviews (u_id, r_id, date_reviewed, comment, rating)
+VALUES ('R8mO8EMcBrkI5g1kBb8TVA', 'TS1eYydoWdk9HwOUXhAgXg', '2011-07-14', "I don't know why there aren't more reviews for this place. Every morning whenever I go to work, I always pass by this stand and one day I actually got the chance to buy from them. I got a chicken gyro with white sauce, and it was delicious. The chicken was homogenously chopped up and the amount of lettuce and tomato was generous. The white sauce blended perfectly well with everything inside and what he put wasn't too much.\n\nAt first, when I got it, I thought it was a bit tiny compared to my hands (my hands are pretty big and they were about the size of my hand), but after I finished it, I felt satisfied and not too guilty of consuming yet another halal creation. The prices here are pretty standard, and they have coffee and breakfast food too, so stop by if you haven't, but I kind of doubt it since there are lines every time I walk by here during my lunch hour.\n\nDon't get this street cart confused with the one across the street! There's another one in front of the law school, but this one is on the main campus side of Amsterdam!", 4)

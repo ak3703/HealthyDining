@@ -18,7 +18,7 @@ CREATE TABLE Addresses(
 
 /* Create the restaurants table */
 CREATE TABLE Restaurants(
-	r_id int, 
+	r_id VARCHAR(50), 
 	name VARCHAR(255) NOT NULL, 
 	cuisine VARCHAR(255), 
 	photo_url VARCHAR(255), 
@@ -33,7 +33,7 @@ CREATE TABLE ViolationSummaries(
 	date_inspected DATE NOT NULL, 
 	violation_count int NOT NULL, 
 	grade VARCHAR(2) NOT NULL, 
-	r_id int, 
+	r_id VARCHAR(50), 
 	FOREIGN KEY (r_id) REFERENCES Restaurants(r_id),
 	PRIMARY KEY (v_id));
 
@@ -44,15 +44,15 @@ CREATE TABLE Violations(
 	FOREIGN KEY (v_id) REFERENCES ViolationSummaries(v_id));
 
 CREATE TABLE Reviewers(
-	u_id int, 
+	u_id VARCHAR(50), 
 	name VARCHAR(255), 
 	review_count int, 
 	average_rating FLOAT(3,2), 
 	PRIMARY KEY (u_id));
 
 CREATE TABLE Reviews(
-	u_id int, 
-	r_id int, 
+	u_id VARCHAR(50), 
+	r_id VARCHAR(50), 
 	date_reviewed DATE, 
 	comment VARCHAR(255), 
 	rating FLOAT(3,2), 
