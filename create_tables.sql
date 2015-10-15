@@ -1,13 +1,3 @@
--- SET FOREIGN_KEY_CHECKS=0;
--- DROP TABLE Addresses;
--- DROP TABLE Restaurants;
--- DROP TABLE ViolationSummaries;
--- DROP TABLE Violations;
--- DROP TABLE Reviewers;
--- DROP TABLE Reviews;
--- SET FOREIGN_KEY_CHECKS=1;
-
-
 /* Create the addresses table */ 
 CREATE TABLE Addresses(
 	a_id int,
