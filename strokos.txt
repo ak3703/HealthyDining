@@ -1,0 +1,59 @@
+{"business_id": "K-wyXXi5lPM2cwaV9_vXcQ", "full_address": "1090 Amsterdam Ave\nMorningside Heights\nNew York, NY 10025", "schools": ["Columbia University"], "open": true, "categories": ["Greek", "Delis", "Pizza", "Restaurants"], "photo_url": "http://s3-media2.ak.yelpcdn.com/bphoto/_zy6XcN3ILmBLl7D7tQytA/ms.jpg", "city": "New York", "review_count": 32, "name": "Strokos Gourmet Deli", "neighborhoods": ["Morningside Heights"], "url": "http://www.yelp.com/biz/strokos-gourmet-deli-new-york", "longitude": -73.9621317, "state": "NY", "stars": 3.0, "latitude": 40.805354800000003, "type": "business"}
+
+{"votes": {"funny": 20, "useful": 124, "cool": 49}, "user_id": "rlSiggm5Xb92HdO5JkMo1Q", "name": "Kate M.", "url": "http://www.yelp.com/user_details?userid=rlSiggm5Xb92HdO5JkMo1Q", "average_stars": 3.09634551495017, "review_count": 301, "type": "user"}
+
+{"votes": {"funny": 0, "useful": 1, "cool": 0}, "user_id": "rlSiggm5Xb92HdO5JkMo1Q", "review_id": "M1Rb9p9RUdlmFrgFOxrKpg", "stars": 2, "date": "2008-12-17", "text": "Overpriced, mediocre food.", "type": "review", "business_id": "K-wyXXi5lPM2cwaV9_vXcQ"}
+
+{"votes": {"funny": 1, "useful": 6, "cool": 0}, "user_id": "hIpXo2cSZ2jAjSYadNxwSg", "name": "David C.", "url": "http://www.yelp.com/user_details?userid=hIpXo2cSZ2jAjSYadNxwSg", "average_stars": 4.4615384615384599, "review_count": 26, "type": "user"}
+
+{"votes": {"funny": 0, "useful": 0, "cool": 0}, "user_id": "hIpXo2cSZ2jAjSYadNxwSg", "review_id": "4siRidah7Zvjz-o9xYhF1g", "stars": 4, "date": "2011-03-12", "text": "Massive and tasty salads for only $6.95", "type": "review", "business_id": "K-wyXXi5lPM2cwaV9_vXcQ"}
+
+40705487,STROKOS GOURMET DELI,MANHATTAN,1090,AMSTERDAM AVE,10025,2126662121,Delicatessen,09/05/2014,Violations were cited in the following area(s).,04M,Live roaches present in facility's food and/or non-food areas.,Critical,15,B,09/05/2014,10/14/2015,Cycle Inspection / Re-inspection
+40705487,STROKOS GOURMET DELI,MANHATTAN,1090,AMSTERDAM AVE,10025,2126662121,Delicatessen,09/05/2014,Violations were cited in the following area(s).,08A,Facility not vermin proof. Harborage or conditions conducive to attracting vermin to the premises and/or allowing vermin to exist.,Not Critical,15,B,09/05/2014,10/14/2015,Cycle Inspection / Re-inspection
+40705487,STROKOS GOURMET DELI,MANHATTAN,1090,AMSTERDAM AVE,10025,2126662121,Delicatessen,09/05/2014,Violations were cited in the following area(s).,10F,"Non-food contact surface improperly constructed. Unacceptable material used. Non-food contact surface or equipment improperly maintained and/or not properly sealed, raised, spaced or movable to allow accessibility for cleaning on all sides, above and underneath the unit.",Not Critical,15,B,09/05/2014,10/14/2015,Cycle Inspection / Re-inspection
+
+40705487,STROKOS GOURMET DELI,MANHATTAN,1090,AMSTERDAM AVE,10025,2126662121,Delicatessen,03/20/2015,Violations were cited in the following area(s).,02G,Cold food item held above 41Âº F (smoked fish and reduced oxygen packaged foods above 38 ÂºF) except during necessary preparation.,Critical,11,A,03/20/2015,10/14/2015,Cycle Inspection / Initial Inspection
+40705487,STROKOS GOURMET DELI,MANHATTAN,1090,AMSTERDAM AVE,10025,2126662121,Delicatessen,03/20/2015,Violations were cited in the following area(s).,10B,Plumbing not properly installed or maintained; anti-siphonage or backflow prevention device not provided where required; equipment or floor not properly drained; sewage disposal system in disrepair or not functioning properly.,Not Critical,11,A,03/20/2015,10/14/2015,Cycle Inspection / Initial Inspection
+40705487,STROKOS GOURMET DELI,MANHATTAN,1090,AMSTERDAM AVE,10025,2126662121,Delicatessen,03/20/2015,Violations were cited in the following area(s).,10H,Proper sanitization not provided for utensil ware washing operation.,Not Critical,11,A,03/20/2015,10/14/2015,Cycle Inspection / Initial Inspection
+
+INSERTO INTO Addresses (a_id,zip,building_number,street_name,city,state)
+VALUES (10,10025,1090,'Amsterdam Ave','New York','NY')
+
+INSERT INTO Restaurants (r_id, name, cuisine, photo_url, phone, website_url, a_id)
+VALUES ('K-wyXXi5lPM2cwaV9_vXcQ', "Strokos", "Delis", "http://s3-media2.ak.yelpcdn.com/bphoto/_zy6XcN3ILmBLl7D7tQytA/ms.jpg", "2126662121", "http://www.yelp.com/biz/strokos-gourmet-deli-new-york", 10)
+
+INSERT INTO Reviewers (u_id, name, review_count, average_rating)
+VALUES ('rlSiggm5Xb92HdO5JkMo1Q', 'Kate M.', 301, 3.1)
+
+INSERT INTO Reviews (u_id, r_id, date_reviewed, comment, rating)
+VALUES ('rlSiggm5Xb92HdO5JkMo1Q', 'K-wyXXi5lPM2cwaV9_vXcQ', '2008-12-17', "Overpriced, mediocre food.", 2)
+
+INSERT INTO Reviewers (u_id, name, review_count, average_rating)
+VALUES ('hIpXo2cSZ2jAjSYadNxwSg-NtpIYw', 'David C.', 26, 4.46)
+
+INSERT INTO Reviews (u_id, r_id, date_reviewed, comment, rating)
+VALUES ('hIpXo2cSZ2jAjSYadNxwSg-NtpIYw', 'K-wyXXi5lPM2cwaV9_vXcQ', '2011-03-12', "Massive and tasty salads for only $6.95", 4)
+
+INSERT INTO ViolationSummaries (v_id, date_inspected, violation_count, grade, r_id)
+VALUES (101, '09-05-2014', 3, 'B', 'K-wyXXi5lPM2cwaV9_vXcQ')
+
+INSERT INTO Violations (v_id, violation_detail, critical)
+VALUES (101, "Live roaches present in facility's food and/or non-food areas.", 1)
+
+INSERT INTO Violations (v_id, violation_detail, critical)
+VALUES (101, "Facility not vermin proof. Harborage or conditions conducive to attracting vermin to the premises and/or allowing vermin to exist.", 0)
+
+INSERT INTO Violations (v_id, violation_detail, critical)
+VALUES (101, "Non-food contact surface improperly constructed. Unacceptable material used. Non-food contact surface or equipment improperly maintained and/or not properly sealed, raised, spaced or movable to allow accessibility for cleaning on all sides, above and underneath the unit.", 0)
+
+INSERT INTO ViolationSummaries (v_id, date_inspected, violation_count, grade, r_id)
+VALUES (102, '03-20-2015', 3, 'A', 'K-wyXXi5lPM2cwaV9_vXcQ')
+
+INSERT INTO Violations (v_id, violation_detail, critical)
+VALUES (102, "Cold food item held above 41Ã‚Âº F (smoked fish and reduced oxygen packaged foods above 38 Ã‚ÂºF) except during necessary preparation.", 1)
+
+INSERT INTO Violations (v_id, violation_detail, critical)
+VALUES (102, "Plumbing not properly installed or maintained; anti-siphonage or backflow prevention device not provided where required; equipment or floor not properly drained; sewage disposal system in disrepair or not functioning properly.", 0)
+
+INSERT INTO Violations (v_id, violation_detail, critical)
+VALUES (102, "Proper sanitization not provided for utensil ware washing operation.", 0)

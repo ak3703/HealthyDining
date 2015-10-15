@@ -40,7 +40,8 @@ CREATE TABLE ViolationSummaries(
 CREATE TABLE Violations(
 	v_id int, 
 	violation_detail VARCHAR(255), 
-	critical TINYINT(1), 
+	critical TINYINT(1),
+	CONSTRAINT v_detail PRIMARY KEY (v_id, violation_detail),
 	FOREIGN KEY (v_id) REFERENCES ViolationSummaries(v_id));
 
 CREATE TABLE Reviewers(

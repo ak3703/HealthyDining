@@ -1,0 +1,60 @@
+{"business_id": "8oHCb-XvLpqCQD7En17Fzw", "full_address": "2843 Broadway\nManhattan Valley\nNew York, NY 10025", "schools": ["Columbia University"], "open": true, "categories": ["Mexican", "Restaurants"], "photo_url": "http://s3-media2.ak.yelpcdn.com/bphoto/wLBz0C_Mudhb-0pAk7QTvQ/ms.jpg", "city": "New York", "review_count": 32, "name": "Chipotle", "neighborhoods": ["Manhattan Valley"], "url": "http://www.yelp.com/biz/chipotle-new-york-4", "longitude": -73.966737800000004, "state": "NY", "stars": 3.5, "latitude": 40.804466400000003, "type": "business"}
+
+{"votes": {"funny": 406, "useful": 746, "cool": 365}, "user_id": "kIeBFp6DU3E1THLz4RFOlw", "name": "Dimitrios D.", "url": "http://www.yelp.com/user_details?userid=kIeBFp6DU3E1THLz4RFOlw", "average_stars": 3.6374321880650999, "review_count": 1106, "type": "user"}
+
+{"votes": {"funny": 0, "useful": 0, "cool": 0}, "user_id": "kIeBFp6DU3E1THLz4RFOlw", "review_id": "mFhu8a3u_Y2G5aslWovUOg", "stars": 4, "date": "2011-03-06", "text": "It's a Chipotle.\n\nIt's relatively near to Columbia University, so convenient for students who go there.\n\nThere's almost always a line when I go.\n\nI love the chicken tacos.  One hard, two soft.  With cheese, the red salsa, the diced tomatoes, and guacamole.  So tasty.", "type": "review", "business_id": "8oHCb-XvLpqCQD7En17Fzw"}
+
+{"votes": {"funny": 1, "useful": 17, "cool": 10}, "user_id": "l2VkeZn9W2CgpGu-NtpIYw", "name": "Daniel M.", "url": "http://www.yelp.com/user_details?userid=l2VkeZn9W2CgpGu-NtpIYw", "average_stars": 3.5185185185185199, "review_count": 27, "type": "user"}
+
+{"votes": {"funny": 0, "useful": 0, "cool": 1}, "user_id": "l2VkeZn9W2CgpGu-NtpIYw", "review_id": "imTMqhhhaSosxGL8BrY1wA", "stars": 5, "date": "2012-01-10", "text": "A pretty crowded Chipotle... but clean and excellent, with efficient service and always fantastic ingredients.\n\nBurrito love.", "type": "review", "business_id": "8oHCb-XvLpqCQD7En17Fzw"}
+
+CAMIS,DBA,BORO,BUILDING,STREET,ZIPCODE,PHONE,CUISINE DESCRIPTION,INSPECTION DATE,ACTION,VIOLATION CODE,VIOLATION DESCRIPTION,CRITICAL FLAG,SCORE,GRADE,GRADE DATE,RECORD DATE,INSPECTION TYPE
+41271036,CHIPOTLE MEXICAN GRILL,MANHATTAN,2843,BROADWAY,10025,2122221712,Mexican,04/29/2013,Violations were cited in the following area(s).,02B,Hot food item not held at or above 140º F.,Critical,9,A,04/29/2013,10/14/2015,Cycle Inspection / Initial Inspection
+41271036,CHIPOTLE MEXICAN GRILL,MANHATTAN,2843,BROADWAY,10025,2122221712,Mexican,04/29/2013,Violations were cited in the following area(s).,10F,"Non-food contact surface improperly constructed. Unacceptable material used. Non-food contact surface or equipment improperly maintained and/or not properly sealed, raised, spaced or movable to allow accessibility for cleaning on all sides, above and underneath the unit.",Not Critical,9,A,04/29/2013,10/14/2015,Cycle Inspection / Initial Inspection
+41271036,CHIPOTLE MEXICAN GRILL,MANHATTAN,2843,BROADWAY,10025,2122221712,Mexican,04/29/2013,Violations were cited in the following area(s).,22A,"Nuisance created or allowed to exist. Facility not free from unsafe, hazardous, offensive or annoying conditions.",Not Critical,,,,10/14/2015,Administrative Miscellaneous / Initial Inspection
+
+41271036,CHIPOTLE MEXICAN GRILL,MANHATTAN,2843,BROADWAY,10025,2122221712,Mexican,01/22/2015,Violations were cited in the following area(s).,06C,"Food not protected from potential source of contamination during storage, preparation, transportation, display or service.",Critical,12,A,01/22/2015,10/14/2015,Cycle Inspection / Re-inspection
+41271036,CHIPOTLE MEXICAN GRILL,MANHATTAN,2843,BROADWAY,10025,2122221712,Mexican,01/22/2015,Violations were cited in the following area(s).,06D,"Food contact surface not properly washed, rinsed and sanitized after each use and following any activity when contamination may have occurred.",Critical,12,A,01/22/2015,10/14/2015,Cycle Inspection / Re-inspection
+41271036,CHIPOTLE MEXICAN GRILL,MANHATTAN,2843,BROADWAY,10025,2122221712,Mexican,01/22/2015,Violations were cited in the following area(s).,10F,"Non-food contact surface improperly constructed. Unacceptable material used. Non-food contact surface or equipment improperly maintained and/or not properly sealed, raised, spaced or movable to allow accessibility for cleaning on all sides, above and underneath the unit.",Not Critical,12,A,01/22/2015,10/14/2015,Cycle Inspection / Re-inspection
+
+INSERTO INTO Addresses (a_id,zip,building_number,street_name,city,state)
+VALUES (8,10025,2843,'Broadway','New York','NY')
+
+INSERT INTO Restaurants (r_id, name, cuisine, photo_url, phone, website_url, a_id)
+VALUES ('8oHCb-XvLpqCQD7En17Fzw', "Chipotle", "Mexican", "http://s3-media2.ak.yelpcdn.com/bphoto/wLBz0C_Mudhb-0pAk7QTvQ/ms.jpg", "2122221712", "http://www.yelp.com/biz/chipotle-new-york-4", 8)
+
+INSERT INTO Reviewers (u_id, name, review_count, average_rating)
+VALUES ('kIeBFp6DU3E1THLz4RFOlw', 'Dimitrios D.', 1106, 3.64)
+
+INSERT INTO Reviews (u_id, r_id, date_reviewed, comment, rating)
+VALUES ('kIeBFp6DU3E1THLz4RFOlw', '8oHCb-XvLpqCQD7En17Fzw', '2011-03-06', "It's a Chipotle.\n\nIt's relatively near to Columbia University, so convenient for students who go there.\n\nThere's almost always a line when I go.\n\nI love the chicken tacos.  One hard, two soft.  With cheese, the red salsa, the diced tomatoes, and guacamole.  So tasty.", 4)
+
+INSERT INTO Reviewers (u_id, name, review_count, average_rating)
+VALUES ('l2VkeZn9W2CgpGu-NtpIYw', 'Daniel M.', 27, 3.52)
+
+INSERT INTO Reviews (u_id, r_id, date_reviewed, comment, rating)
+VALUES ('l2VkeZn9W2CgpGu-NtpIYw', '8oHCb-XvLpqCQD7En17Fzw', '2012-01-10', "A pretty crowded Chipotle... but clean and excellent, with efficient service and always fantastic ingredients.\n\nBurrito love.", 5)
+
+INSERT INTO ViolationSummaries (v_id, date_inspected, violation_count, grade, r_id)
+VALUES (81, '04-29-2013', 3, 'A', '8oHCb-XvLpqCQD7En17Fzw')
+
+INSERT INTO Violations (v_id, violation_detail, critical)
+VALUES (81, "Hot food item not held at or above 140Âº F.", 1)
+
+INSERT INTO Violations (v_id, violation_detail, critical)
+VALUES (81, "Non-food contact surface improperly constructed. Unacceptable material used. Non-food contact surface or equipment improperly maintained and/or not properly sealed, raised, spaced or movable to allow accessibility for cleaning on all sides, above and underneath the unit.", 0)
+
+INSERT INTO Violations (v_id, violation_detail, critical)
+VALUES (81, "Nuisance created or allowed to exist. Facility not free from unsafe, hazardous, offensive or annoying conditions.", 0)
+
+INSERT INTO ViolationSummaries (v_id, date_inspected, violation_count, grade, r_id)
+VALUES (82, '01-22-2015', 3, 'A', '8oHCb-XvLpqCQD7En17Fzw')
+
+INSERT INTO Violations (v_id, violation_detail, critical)
+VALUES (82, "Food not protected from potential source of contamination during storage, preparation, transportation, display or service.", 1)
+
+INSERT INTO Violations (v_id, violation_detail, critical)
+VALUES (82, "Food contact surface not properly washed, rinsed and sanitized after each use and following any activity when contamination may have occurred.", 1)
+
+INSERT INTO Violations (v_id, violation_detail, critical)
+VALUES (82, "Non-food contact surface improperly constructed. Unacceptable material used. Non-food contact surface or equipment improperly maintained and/or not properly sealed, raised, spaced or movable to allow accessibility for cleaning on all sides, above and underneath the unit.", 0)
