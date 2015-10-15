@@ -1,0 +1,22 @@
+ak3703
+it2216
+
+1)
+SELECT name, date_inspected, violation_count, grade 
+FROM Restaurants, ViolationSummaries 
+WHERE Restaurants.r_id = ViolationSummaries.r_id;
+
+This query is supposed to find all the inspections for each restaurant and the violation counts and grades that they received. This is an example of a quick summary that could be presented to the user for each restaurant.
+
+
+2)
+SELECT r_id, date_reviewed, rating, average_rating, comment 
+FROM Reviewers, Reviews 
+WHERE Reviewers.u_id = Reviews.u_id;
+
+This query shows a user's review for a particular restaurant, but it also shows their average rating for restaurants so it allows the user to see where this review stands in terms of the reviewers average rating.
+
+3)
+SELECT name, cuisine, phone, building_number, street_name, city, zip FROM Addresses, Restaurants WHERE Addresses.a_id = Restaurants.a_id ORDER BY zip ASC;
+
+This query is interesting becuase it sorts basic information about each restaurant and its location based on its zipcode in ascending order.  
