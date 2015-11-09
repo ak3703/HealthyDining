@@ -1,6 +1,79 @@
 <!doctype html>
-<title>Hello from Flask</title>
-{% if name %}
-  <h1>Hello {{ hello }}!</h1> {% else %}
-    <h1>Hello World!</h1>
-    {% endif %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../static/action.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <!-- personal css -->
+    <link rel="stylesheet" href="../static/style.css">
+    <title>HealthyDining</title>
+  </head>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">HealthyDining</a>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <body>
+    <div class="container">
+      <strong>Restaurant Name</strong>
+      <select id="restaurant" onchange="print()">
+        {% for restaurant in restaurants %}
+        <option value="{{ activity }}">{{ restaurant[1] }}</option>
+        {% endfor %}
+      </select>
+      <strong>Food Type</strong>
+      <select>
+        {% for restaurant in restaurants %}
+        <option >{{ restaurant[2] }}</option>
+        {% endfor %}
+      </select>
+      <strong>Zip Code</strong>
+      <select>
+        {% for address in addresses %}
+        <option >{{ address[1] }}</option>
+        {% endfor %}
+      </select>
+      <strong>Rating</strong>
+      <select>
+        {% for review in reviews %}
+        <option >{{ review }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <!-- /.container -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Restaurant Name</th>
+          <th>Cuisine</th>
+          <th>Rating</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for result in results %}
+        <tr >
+          <td>{{ result[1] }}</td>
+          <td>{{ result[2] }}</td>
+          <td>{{ result[0] }}</td>
+          <td>{{ result[3] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

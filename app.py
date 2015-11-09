@@ -1,21 +1,3 @@
-'''#!/usr/bin/python
-import MySQLdb
-
-# connect
-db = MySQLdb.connect(host="localhost", user="ak3703", passwd="password",
-	db="cs4111")
-
-cursor = db.cursor()
-sql = "SHOW TABLES;"
-
-cursor.execute(sql)
-response = cursor.fetchall()
-
-for row in response:
-    print row[0]
-'''
-
-
 from flask import Flask
 from flask import render_template
 import jinja2
@@ -31,13 +13,22 @@ mysql.init_app(app)
 
 
 @app.route('/')
-def index():
-	conn = mysql.connect
-	cursor = mysql.connect.cursor()
-	cursor.execute("SHOW TABLES;")
-	rv = cursor.fetchall()
-	print rv
-	return render_template('index.html')
+@app.route('/<search>')
+def index(search=None):
+	restaurants = mysql.connect.cursor()
+	restaurants.execute("SELECT * FROM Restaurants;")
+	resNames = restaurants.fetchall()
+
+	addresses = mysql.connect.cursor()
+	addresses.execute("SELECT * FROM Addresses;")
+	addressNames = addresses.fetchall()
+
+	reviews = [1.0, 2.0, 3.0, 4.0, 5.0]
+
+	results = mysql.connect.cursor()
+	results.execute("SELECT * FROM Restaurants WHERE r_id=\'%s\'" % search )
+
+	return render_template('index.html', restaurants=resNames, addresses=addressNames, reviews=reviews, results=results)
 
 
 if __name__ == '__main__':
