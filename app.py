@@ -19,16 +19,16 @@ def index(search=None):
 	restaurants.execute("SELECT * FROM Restaurants;")
 	resNames = restaurants.fetchall()
 
-	addresses = mysql.connect.cursor()
-	addresses.execute("SELECT * FROM Addresses;")
-	addressNames = addresses.fetchall()
+	zip_codes = mysql.connect.cursor()
+	zip_codes.execute("SELECT DISTINCT zip FROM Addresses;")
+	zip_codes = zip_codes.fetchall()
 
 	reviews = [1.0, 2.0, 3.0, 4.0, 5.0]
 
 	results = mysql.connect.cursor()
 	results.execute("SELECT * FROM Restaurants WHERE r_id=\'%s\'" % search )
 
-	return render_template('index.html', restaurants=resNames, addresses=addressNames, reviews=reviews, results=results)
+	return render_template('index.html', restaurants=resNames, zip_codes=zip_codes, reviews=reviews, results=results)
 
 
 if __name__ == '__main__':

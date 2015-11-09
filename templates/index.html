@@ -43,8 +43,8 @@
       </select>
       <strong>Zip Code</strong>
       <select>
-        {% for address in addresses %}
-        <option >{{ address[1] }}</option>
+        {% for zip in zip_codes %}
+        <option >{{ zip[0] }}</option>
         {% endfor %}
       </select>
       <strong>Rating</strong>
