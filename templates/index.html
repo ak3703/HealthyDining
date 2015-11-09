@@ -29,16 +29,16 @@
   </nav>
   <body>
     <div class="container">
-      <strong>Restaurant Name</strong>
-      <select id="restaurant" onchange="print()">
+      <!-- <strong>Restaurant Name</strong> -->
+      <!-- <select id="restaurant" onchange="print()">
         {% for restaurant in restaurants %}
         <option value="{{ activity }}">{{ restaurant[1] }}</option>
         {% endfor %}
-      </select>
+      </select> -->
       <strong>Food Type</strong>
       <select>
-        {% for restaurant in restaurants %}
-        <option >{{ restaurant[2] }}</option>
+        {% for cuisine in cuisines %}
+        <option >{{ cuisine[0] }}</option>
         {% endfor %}
       </select>
       <strong>Zip Code</strong>
@@ -47,7 +47,7 @@
         <option >{{ zip[0] }}</option>
         {% endfor %}
       </select>
-      <strong>Rating</strong>
+      <strong>Rating (at least)</strong>
       <select>
         {% for review in reviews %}
         <option >{{ review }}</option>
