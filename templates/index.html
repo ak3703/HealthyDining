@@ -40,20 +40,35 @@
       </select> -->
       <strong>Food Type</strong>
       <select id="cuisine">
+      	<option >All</option>
         {% for cuisine in cuisines %}
-        <option >{{ cuisine[0] }}</option>
+        	{% if cuisine[0] == chosen_cuisine %}
+        	<option selected>{{ cuisine[0] }}</option>
+        	{% else %}
+        	<option >{{ cuisine[0] }}</option>
+        	{% endif %}
         {% endfor %}
       </select>
       <strong>Zip Code</strong>
       <select id="zipcode">
+      	<option >All</option>
         {% for zip in zip_codes %}
-        <option >{{ zip[0] }}</option>
+        	{% if zip[0] == chosen_zip %}
+        	<option selected>{{ zip[0] }}</option>
+        	{% else %}
+        	<option >{{ zip[0] }}</option>
+        	{% endif %}
         {% endfor %}
       </select>
       <strong>Rating (at least)</strong>
       <select id="rating">
-        {% for review in reviews %}
-        <option >{{ review }}</option>
+      	<option >All</option>
+        {% for rating in ratings %}
+        	{% if rating == chosen_rating %}
+        	<option selected>{{ rating }}</option>
+        	{% else %}
+        	<option >{{ rating }}</option>
+        	{% endif %}
         {% endfor %}
       </select>
       <button id="submit" type="button" class="btn btn-primary">Submit</button>

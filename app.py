@@ -24,20 +24,41 @@ def index(search=None):
 	zip_codes.execute("SELECT DISTINCT zip FROM Addresses;")
 	zip_codes = zip_codes.fetchall()
 
-	reviews = [1.0, 2.0, 3.0, 4.0, 5.0]
+	ratings = [1.0, 2.0, 3.0, 4.0, 5.0]
 
 	restaurant =  request.args.get('restaurant')
 	cuisine =  request.args.get('cuisine')
 	zipcode = request.args.get('zipcode')
 	rating = request.args.get('rating')
-	
-	if zipcode:
-		results = mysql.connect.cursor()
+	results = mysql.connect.cursor()
+
+	if cuisine == "All":
+		cuisine = None
+	if rating == "All":
+		rating = None
+	if zipcode == "All":
+		zipcode = None
+
+	if zipcode and cuisine:
+		results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url, V.grade, V.violation_count FROM Addresses A, Restaurants R, ViolationSummaries V WHERE A.a_id = R.a_id AND V.r_id = R.r_id AND R.cuisine=\'" + cuisine + " \' AND A.zip = \'" + zipcode + "\'")
+	elif cuisine:
+		results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url, V.grade, V.violation_count FROM Addresses A, Restaurants R, ViolationSummaries V WHERE A.a_id = R.a_id AND V.r_id = R.r_id AND R.cuisine = \'" + cuisine + "\'")
+	elif zipcode:
 		results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url, V.grade, V.violation_count FROM Addresses A, Restaurants R, ViolationSummaries V WHERE A.a_id = R.a_id AND V.r_id = R.r_id AND A.zip = \'" + zipcode + "\'")
 	else:
-		results = []
+		results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url, V.grade, V.violation_count FROM Addresses A, Restaurants R, ViolationSummaries V WHERE A.a_id = R.a_id AND V.r_id = R.r_id")
 
-	return render_template('index.html', cuisines=cuisines, zip_codes=zip_codes, reviews=reviews, results=results)
+	if rating == None:
+		rating == "All"
+	else:
+		rating = float(rating)
+	if zipcode == None:
+		zipcode == "All"
+	else:
+		zipcode = long(zipcode)
+
+	return render_template('index.html', cuisines=cuisines, zip_codes=zip_codes, ratings=ratings, results=results,
+			chosen_cuisine=cuisine, chosen_zip=zipcode, chosen_rating=rating)
 
 
 if __name__ == '__main__':
