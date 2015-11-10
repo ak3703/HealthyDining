@@ -31,9 +31,11 @@ def index(search=None):
 	zipcode = request.args.get('zipcode')
 	rating = request.args.get('rating')
 	
-	results = mysql.connect.cursor()
-	results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url, V.grade, V.violation_count FROM Addresses A, Restaurants R, ViolationSummaries V WHERE A.a_id = R.a_id AND V.r_id = R.r_id AND A.zip = \'" + zipcode + "\'")
-
+	if zipcode:
+		results = mysql.connect.cursor()
+		results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url, V.grade, V.violation_count FROM Addresses A, Restaurants R, ViolationSummaries V WHERE A.a_id = R.a_id AND V.r_id = R.r_id AND A.zip = \'" + zipcode + "\'")
+	else:
+		results = []
 
 	return render_template('index.html', cuisines=cuisines, zip_codes=zip_codes, reviews=reviews, results=results)
 
