@@ -30,16 +30,18 @@
   </nav>
   <body>
     <div class="container">
-      <strong>Restaurant Name</strong>
-      <select id="restaurant">
+      <!-- <strong>Restaurant Name</strong> -->
+      <!-- <strong>Restaurant Name</strong> -->
+      <!-- <select id="restaurant" onchange="print()">
+>>>>>>> fc722c8e245acca9fd15ac916c4828589a34746b
         {% for restaurant in restaurants %}
         <option value="{{ activity }}">{{ restaurant[1] }}</option>
         {% endfor %}
-      </select>
+      </select> -->
       <strong>Food Type</strong>
       <select id="cuisine">
-        {% for restaurant in restaurants %}
-        <option >{{ restaurant[2] }}</option>
+        {% for cuisine in cuisines %}
+        <option >{{ cuisine[0] }}</option>
         {% endfor %}
       </select>
       <strong>Zip Code</strong>
@@ -48,7 +50,7 @@
         <option >{{ zip[0] }}</option>
         {% endfor %}
       </select>
-      <strong>Rating</strong>
+      <strong>Rating (at least)</strong>
       <select id="rating">
         {% for review in reviews %}
         <option >{{ review }}</option>

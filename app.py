@@ -16,9 +16,9 @@ mysql.init_app(app)
 @app.route('/')
 @app.route('/<search>')
 def index(search=None):
-	restaurants = mysql.connect.cursor()
-	restaurants.execute("SELECT * FROM Restaurants;")
-	resNames = restaurants.fetchall()
+	cuisines = mysql.connect.cursor()
+	cuisines.execute("SELECT DISTINCT cuisine FROM Restaurants;")
+	cuisines = cuisines.fetchall()
 
 	zip_codes = mysql.connect.cursor()
 	zip_codes.execute("SELECT DISTINCT zip FROM Addresses;")
@@ -34,7 +34,8 @@ def index(search=None):
 	results = mysql.connect.cursor()
 	results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url, V.grade, V.violation_count FROM Addresses A, Restaurants R, ViolationSummaries V WHERE A.a_id = R.a_id AND V.r_id = R.r_id AND A.zip = \'" + zipcode + "\'")
 
-	return render_template('index.html', restaurants=resNames,results=results, zip_codes=zip_codes, reviews=reviews, search=search)
+
+	return render_template('index.html', cuisines=cuisines, zip_codes=zip_codes, reviews=reviews, results=results)
 
 
 if __name__ == '__main__':

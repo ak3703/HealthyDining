@@ -16,11 +16,10 @@ function trigger(element) {
 
 
     $("#submit").click(function(){
-    	var restaurant = getInnerHTML("restaurant");
     	var cuisine = getInnerHTML("cuisine");
     	var zipcode = getInnerHTML("zipcode");
     	var rating = getInnerHTML("rating");
-      window.location.href = 'http://localhost:5000/' + "?restaurant="+restaurant+"&cuisine="+cuisine+"&zipcode="+zipcode+"&rating="+rating;
+      window.location.href = 'http://localhost:5000/' + "?cuisine="+cuisine+"&zipcode="+zipcode+"&rating="+rating;
     });
 });
 
