@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../static/jquery.js"></script>
     <script src="../static/action.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
@@ -30,47 +31,59 @@
   <body>
     <div class="container">
       <strong>Restaurant Name</strong>
-      <select id="restaurant" onchange="print()">
+      <select id="restaurant">
         {% for restaurant in restaurants %}
         <option value="{{ activity }}">{{ restaurant[1] }}</option>
         {% endfor %}
       </select>
       <strong>Food Type</strong>
-      <select>
+      <select id="cuisine">
         {% for restaurant in restaurants %}
         <option >{{ restaurant[2] }}</option>
         {% endfor %}
       </select>
       <strong>Zip Code</strong>
-      <select>
+      <select id="zipcode">
         {% for zip in zip_codes %}
         <option >{{ zip[0] }}</option>
         {% endfor %}
       </select>
       <strong>Rating</strong>
-      <select>
+      <select id="rating">
         {% for review in reviews %}
         <option >{{ review }}</option>
         {% endfor %}
       </select>
+      <button id="submit" type="button" class="btn btn-primary">Submit</button>
     </div>
     <!-- /.container -->
     <table class="table table-striped">
       <thead>
         <tr>
           <th>Restaurant Name</th>
-          <th>Cuisine</th>
-          <th>Rating</th>
           <th>Address</th>
+          <th>Cuisine</th>
+          <th>Website</th>
+          <th>Grade</th>
         </tr>
       </thead>
       <tbody>
         {% for result in results %}
         <tr >
-          <td>{{ result[1] }}</td>
-          <td>{{ result[2] }}</td>
           <td>{{ result[0] }}</td>
-          <td>{{ result[3] }}</td>
+          <td>{{ result[1] }} {{ result[2] }} {{ result[3] }} {{ result[4] }}</td>
+          <td>{{ result[5] }}</td>
+          <td>{{ result[6] }}</td>
+          <td>{{ result[7] }}</td>
+          <td> <button type="button" class="btn btn-primary">More Info</button></td>
+        </tr>
+        <tr style="display:none">
+          <td>
+          Grade: {{ result[7] }} 
+        </td>
+        <td>
+          Violation Count: {{ result[8] }} Grade: {{ result[7] }} 
+        </td>
         </tr>
         {% endfor %}
       </tbody>
