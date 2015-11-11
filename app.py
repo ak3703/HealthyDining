@@ -40,13 +40,13 @@ def index(search=None):
 		zipcode = None
 
 	if zipcode and cuisine:
-		results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url, V.grade, V.violation_count FROM Addresses A, Restaurants R, ViolationSummaries V WHERE A.a_id = R.a_id AND V.r_id = R.r_id AND R.cuisine=\'" + cuisine + " \' AND A.zip = \'" + zipcode + "\'")
+		results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url FROM Addresses A, Restaurants R WHERE A.a_id = R.a_id AND R.cuisine=\'" + cuisine + " \' AND A.zip = \'" + zipcode + "\'")
 	elif cuisine:
-		results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url, V.grade, V.violation_count FROM Addresses A, Restaurants R, ViolationSummaries V WHERE A.a_id = R.a_id AND V.r_id = R.r_id AND R.cuisine = \'" + cuisine + "\'")
+		results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url FROM Addresses A, Restaurants R WHERE A.a_id = R.a_id AND R.cuisine = \'" + cuisine + "\'")
 	elif zipcode:
-		results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url, V.grade, V.violation_count FROM Addresses A, Restaurants R, ViolationSummaries V WHERE A.a_id = R.a_id AND V.r_id = R.r_id AND A.zip = \'" + zipcode + "\'")
+		results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url FROM Addresses A, Restaurants R WHERE A.a_id = R.a_id AND A.zip = \'" + zipcode + "\'")
 	else:
-		results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url, V.grade, V.violation_count FROM Addresses A, Restaurants R, ViolationSummaries V WHERE A.a_id = R.a_id AND V.r_id = R.r_id")
+		results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url FROM Addresses A, Restaurants R WHERE A.a_id = R.a_id")
 
 	if rating == None:
 		rating == "All"
