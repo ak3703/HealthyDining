@@ -24,7 +24,7 @@ def index(search=None):
 	zip_codes.execute("SELECT DISTINCT zip FROM Addresses;")
 	zip_codes = zip_codes.fetchall()
 
-	ratings = [1.0, 2.0, 3.0, 4.0, 5.0]
+	ratings = [2.0, 3.0, 4.0, 5.0]
 
 	restaurant =  request.args.get('restaurant')
 	cuisine =  request.args.get('cuisine')
@@ -40,13 +40,52 @@ def index(search=None):
 		zipcode = None
 
 	if zipcode and cuisine:
-		results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url FROM Addresses A, Restaurants R WHERE A.a_id = R.a_id AND R.cuisine=\'" + cuisine + " \' AND A.zip = \'" + zipcode + "\'")
+		results.execute("SELECT DISTINCT R.r_id, R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url FROM Addresses A, Restaurants R WHERE A.a_id = R.a_id AND R.cuisine=\'" + cuisine + " \' AND A.zip = \'" + zipcode + "\'")
 	elif cuisine:
-		results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url FROM Addresses A, Restaurants R WHERE A.a_id = R.a_id AND R.cuisine = \'" + cuisine + "\'")
+		results.execute("SELECT DISTINCT R.r_id, R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url FROM Addresses A, Restaurants R WHERE A.a_id = R.a_id AND R.cuisine = \'" + cuisine + "\'")
 	elif zipcode:
-		results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url FROM Addresses A, Restaurants R WHERE A.a_id = R.a_id AND A.zip = \'" + zipcode + "\'")
+		results.execute("SELECT DISTINCT R.r_id, R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url FROM Addresses A, Restaurants R WHERE A.a_id = R.a_id AND A.zip = \'" + zipcode + "\'")
 	else:
-		results.execute("SELECT DISTINCT R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url FROM Addresses A, Restaurants R WHERE A.a_id = R.a_id")
+		results.execute("SELECT DISTINCT R.r_id, R.name, A.building_number, A.street_name, A.city, A.zip, R.cuisine, R.website_url FROM Addresses A, Restaurants R WHERE A.a_id = R.a_id")
+
+	final_results = []
+	for result in results:
+		current_restaurant = {}
+		address = (str(result[2])+" "+result[3]+" "+result[4]+" "+str(result[5])).replace("None","")
+		restaurant_id = str(result[0])
+		reviews = mysql.connect.cursor()
+		reviews.execute("SELECT R.u_id, R.date_reviewed, R.comment, R.rating FROM Reviews R WHERE R.r_id = \'" + restaurant_id + "\'")
+		review_array = []
+		rating_array = []
+		for review in reviews:
+			rating_array.append(review[3])
+			current_review = []
+			user_id = str(review[0])
+			reviewer = mysql.connect.cursor()
+			reviewer.execute("SELECT name, review_count, average_rating FROM Reviewers WHERE u_id=\'" + user_id + "\'")
+			reviewer = reviewer.fetchone()
+			date = review[1].strftime("%Y/%m/%d")
+			review_array.append([reviewer[0],date,review[3],review[2],reviewer[1],reviewer[2]])
+		average_rating = sum(rating_array)/len(rating_array)
+		if rating:
+			if float(average_rating) < float(rating):
+				continue
+		current_restaurant["basic_info"] = [result[1], address, result[6], result[7], str(average_rating)]
+		current_restaurant["reviews"] = review_array
+		violations = mysql.connect.cursor()
+		violations.execute("SELECT date_inspected, violation_count, grade FROM ViolationSummaries WHERE r_id=\'" + restaurant_id + "\'")
+		violation_array = []
+		for violation in violations:
+			date = violation[0].strftime("%Y/%m/%d")
+			violation_array.append([date,violation[1],violation[2]])
+		current_restaurant["violations"] = violation_array
+		final_results.append(current_restaurant)
+
+
+	#format for each result is
+	#["basic_info"] = [r_name, address, cuisine, web_url, avg_rating for restaurant]
+	#["reviews"] = [[u_name,r_date,rating,comment,user_rating_count,user_rating_avg].[]] Array of arrays each array being one review
+	#["violations"] = [[date,violation_count,grade],[]] Array of arrays each array being one summary
 
 	if rating == None:
 		rating == "All"
@@ -57,7 +96,7 @@ def index(search=None):
 	else:
 		zipcode = long(zipcode)
 
-	return render_template('index.html', cuisines=cuisines, zip_codes=zip_codes, ratings=ratings, results=results,
+	return render_template('index.html', cuisines=cuisines, zip_codes=zip_codes, ratings=ratings, results=final_results,
 			chosen_cuisine=cuisine, chosen_zip=zipcode, chosen_rating=rating)
 
 

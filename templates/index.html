@@ -81,17 +81,18 @@
           <th>Address</th>
           <th>Cuisine</th>
           <th>Website</th>
-          <th>Grade</th>
+          <th>Average Rating</th>
         </tr>
       </thead>
       <tbody>
         {% for result in results %}
+        	{% set basic_info = result["basic_info"] %}
         <tr >
-          <td>{{ result[0] }}</td>
-          <td>{{ result[1] }} {{ result[2] }} {{ result[3] }} {{ result[4] }}</td>
-          <td>{{ result[5] }}</td>
-          <td><a href="{{ result[6] }}" target="_blank">Yelp Page</a></td>
-          <td>{{ result[7] }}</td>
+          <td>{{ basic_info[0] }}</td>
+          <td>{{ basic_info[1] }}</td>
+          <td>{{ basic_info[2] }}</td>
+          <td><a href="{{ basic_info[3] }}" target="_blank">Yelp Page</a></td>
+          <td>{{ basic_info[4] }}</td>
           <td> <button type="button" class="btn btn-primary">More Info</button></td>
         </tr>
         <!-- <tr style="display:none">
