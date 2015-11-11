@@ -22,7 +22,7 @@ function trigger(element) {
     	var cuisine = getInnerHTML("cuisine");
     	var zipcode = getInnerHTML("zipcode");
     	var rating = getInnerHTML("rating");
-      window.location.href = 'http://localhost:5000/' + "?cuisine="+cuisine+"&zipcode="+zipcode+"&rating="+rating;
+      window.location.href = 'https://healthydining.herokuapp.com/' + "?cuisine="+cuisine+"&zipcode="+zipcode+"&rating="+rating;
     });
 });
 
