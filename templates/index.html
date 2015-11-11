@@ -131,6 +131,18 @@
             Violation Date: {{ violation[0] }} &nbsp;&nbsp;&nbsp;
           </td>
         </tr>
+        {% for detail in violation[3] %}
+        <tr style="display:none" class="review">
+        	<td>
+        	</td>
+        	<td>
+        		Detail: {{ detail[0] }}
+        	</td>
+        	<td>
+        		Critical: {{ detail[1] }}
+        	</td>
+        </tr>
+        {% endfor %}
         {% endfor %}
         {% endfor %}
       </tbody>

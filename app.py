@@ -53,13 +53,17 @@ def index(search=None):
 	reviews = reviews.fetchall()
 
 	violations = mysql.connect.cursor()
-	violations.execute("SELECT date_inspected, violation_count, grade, r_id FROM ViolationSummaries")	
+	violations.execute("SELECT date_inspected, violation_count, grade, r_id, v_id FROM ViolationSummaries")	
 	violations = violations.fetchall()
 	
 	reviewers = mysql.connect.cursor()
 	reviewers.execute("SELECT name, review_count, average_rating, u_id FROM Reviewers")
 	reviewers = reviewers.fetchall()
 	
+	violation_details = mysql.connect.cursor()
+	violation_details.execute("SELECT violation_detail, critical, v_id FROM Violations")
+	violation_details = violation_details.fetchall()
+
 	final_results = []
 	for result in results:
 		current_restaurant = {}
@@ -86,7 +90,15 @@ def index(search=None):
 		for violation in violations:
 			if restaurant_id == str(violation[3]):
 				date = violation[0].strftime("%Y/%m/%d")
-				violation_array.append([date,violation[1],violation[2]])
+				violation_detail_array = []
+				for violation_detail in violation_details:
+					if str(violation[4]) == str(violation_detail[2]):
+						if violation_detail[1] == 1:
+							critical = "True"
+						else:
+							critical = "False"
+						violation_detail_array.append([violation_detail[0],critical])
+				violation_array.append([date,violation[1],violation[2],violation_detail_array])
 		current_restaurant["violations"] = violation_array
 		final_results.append(current_restaurant)
 
