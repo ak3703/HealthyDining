@@ -2,7 +2,10 @@ $(document).ready(function() {
 	$(".btn-primary").click(function(){
         //$(".Dominos").collapse('toggle');
         var elements = $(this).parent().parent().next();
+        while(elements.attr('class') === 'review'){
         trigger(elements);
+        elements = elements.next();
+        }
     });
 
 // switch the status of display

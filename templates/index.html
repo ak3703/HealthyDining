@@ -82,30 +82,56 @@
           <th>Cuisine</th>
           <th>Website</th>
           <th>Average Rating</th>
+          <th>More Information</th>
         </tr>
       </thead>
       <tbody>
         {% for result in results %}
         	{% set basic_info = result["basic_info"] %}
-        <tr >
+        <tr style="font-weight: bold">
           <td>{{ basic_info[0] }}</td>
           <td>{{ basic_info[1] }}</td>
           <td>{{ basic_info[2] }}</td>
           <td><a href="{{ basic_info[3] }}" target="_blank">Yelp Page</a></td>
           <td>{{ basic_info[4] }}</td>
-          <td> <button type="button" class="btn btn-primary">More Info</button></td>
+          <td> <button type="button" class="btn btn-primary">Show</button></td>
         </tr>
-        <!-- <tr style="display:none">
+        {% set reviews = result["reviews"] %}
+        {% for review in reviews %}
+        <tr style="display:none" class="review">
           <td>
-            Grade: {{ result[7] }} 
+            Username: {{ review[0] }} 
           </td>
           <td>
-            Violation Count: {{ result[8] }} Grade: {{ result[7] }} 
+            Comment: {{ review[3] }}  
           </td>
-        </tr> -->
-        <div style="display:none">
-         <p>a;lskfjadls;kfj</p>
-        </div>
+          <td>
+            Rating: {{ review[2] }} 
+          </td>
+          <td>
+            Average Rating: {{ review[5] }} 
+          </td>
+          <td>
+            User Rating Count: {{ review[4] }} 
+          </td>
+          <td>
+            Review Date: {{ review[1] }}
+          </td>
+        </tr>
+        {% endfor %}
+        {% set violations = result["violations"] %}
+        {% for violation in violations %}
+        <tr style="display:none" class="review">
+          <td>
+            Violations
+          </td>
+          <td>
+            Grade: {{ violation[2] }} &nbsp;&nbsp;&nbsp;
+            Violation Count: {{ violation[1] }} &nbsp;&nbsp;&nbsp;
+            Violation Date: {{ violation[0] }} &nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        {% endfor %}
         {% endfor %}
       </tbody>
     </table>
